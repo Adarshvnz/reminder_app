@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  <div class="jumbotron">
+
+    <h4>Added Reminders are shown below.</h4><br>
+
+    {% for rem in object_list %}
+    <ul>
+      <li><a href="{% url 'rem:updaterem' pk=rem.pk %}" class="btn btn-primary a-btn-slide-text">
+        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+        <span><strong>Edit</strong></span>
+    </a>
+          <h4>{{rem.rem_name}}</h4>
+          <p>{{rem.rem_on}}</p>
+      </li>
+    </ul>
+
+    {% endfor %}
+
+  </div>
+</div>
+{% endblock %}
